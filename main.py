@@ -73,7 +73,7 @@ def go(config: DictConfig):
         )
 
     if "random_forest" in steps_to_execute:
-        # Serialize decision tree configuration
+        # Serialize decision tree configuration. It's a way to avoid having too many command line parameters
         model_config = os.path.abspath("random_forest_config.yml")
 
         with open(model_config, "w+") as fp:
@@ -86,7 +86,7 @@ def go(config: DictConfig):
                 "train_data": "data_train.csv:latest",
                 "model_config": model_config,
                 "export_artifact": config["random_forest_pipeline"]["export_artifact"],
-                "random_seed": config["data"]["random_seed"],
+                "random_seed": config["main"]["random_seed"],
                 "val_size": config["data"]["val_size"],
                 "stratify": config["data"]["stratify"]
             }
