@@ -47,3 +47,11 @@ The workflow is run by using the following command:
 mlflow run . -P hydra_options="main.project_name=<project_name>"
 ```
 where <project_name> is the name given to the project and under which the experiment will be saved in Weight & Biases.
+
+## Running Remotely
+To run the pipeline remotely:
+```bash
+mlflow run https://github.com/Geodego/genre_classification.git \
+-v v1.0.0 \
+-P hydra_options="main.project_name=<project_name>"
+```
